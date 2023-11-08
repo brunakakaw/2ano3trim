@@ -1,19 +1,15 @@
-function tocaSomBrasil(){
-    document.querySelector('#som_tecla_brasil').play();
+funcion tocaSom(idElementoAudio){
+    document.querySelector(idElementoAudio).play();
 }
-document.querySelector('.tecla_brasil').onclick=tocaSomBrasil ;
+const listaDeTeclas=document.querySelectorAll(".tecla");
 
-function tocaSomMario(){
-    document.querySelector('#som_tecla_mario').play();
+let contador=0;
+while (contador<listaDeTeclas.length){
+    const efeito=listaDeTeclas[contador].classList[1];
+    const idAudio=#som_'+efeito;
+    listaDeTeclas[contador].onclick=function(){
+        tocaSom(idAudio);
+    }
+    contador= contador+1;
+    console.log(contador);
 }
-document.querySelector('.tecla_mario').onclick=tocaSomMario ;
-
-function tocaSomPlantao(){
-    document.querySelector('#som_tecla_plantao').play();
-}
- document.querySelector('.tecla_plantao').onclick=tocaSomPlantao ;
-
- function tocaSomShow(){
-    document.querySelector('#som_tecla_show').play();
- }
- document.querySelector('.tecla_show').onclick=tocaSomShow ;
